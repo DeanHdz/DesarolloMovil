@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-//import 'agregar_usuario.dart';
-//import 'ajustes.dart';
-//import 'mapa.dart';
-//import 'login.dart';
+import 'agregar_usuario.dart';
+import 'ajustes.dart';
+import 'mapa.dart';
+import 'login.dart';
 import 'home.dart';
 
 void main() {

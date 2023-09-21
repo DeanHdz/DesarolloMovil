@@ -13,6 +13,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+//lista vcia
+  List usuarios = [];
+
+  @override
+  void initState() {
+    //cada ver que inicia el widget realiza las siguientes acciones?
+    usuarios.add('1#nombre1#correo1');
+    usuarios.add('2#nombre2#correo2');
+    usuarios.add('3#nombre3#correo3');
+    usuarios.add('4#nombre4#correo4');
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     //ESTO SE USA MUCHO (size), define el tamaño de la pantalla
@@ -97,126 +111,55 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     )),
-                Card(
-                    color: Colors.grey,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        children: [
-                          const Expanded(
-                              flex: 4,
-                              child: Text(
-                                'user',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 20),
-                              )),
-                          const Expanded(
-                            flex: 4,
-                            child: Text(
-                              'pass',
-                              textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 4,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.person)),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.edit))
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
-                Card(
-                    color: Colors.grey,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        children: [
-                          const Expanded(
-                              flex: 4,
-                              child: Text(
-                                'user',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 20),
-                              )),
-                          const Expanded(
-                            flex: 4,
-                            child: Text(
-                              'pass',
-                              textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 4,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.person)),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.edit))
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
-                Card(
-                    color: Colors.grey,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        children: [
-                          const Expanded(
-                              flex: 4,
-                              child: Text(
-                                'user',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 20),
-                              )),
-                          const Expanded(
-                            flex: 4,
-                            child: Text(
-                              'pass',
-                              textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 4,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.person)),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.edit))
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: usuarios.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        var datos = usuarios[index].split('#');
+
+                        return Card(
+                            color: Colors.grey,
+                            child: Padding(
+                              padding: const EdgeInsets.all(15),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                      flex: 4,
+                                      child: Text(
+                                        datos[1],
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                            color: Colors.black, fontSize: 20),
+                                      )),
+                                  Expanded(
+                                    flex: 4,
+                                    child: Text(
+                                      datos[2],
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                          color: Colors.black, fontSize: 20),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 4,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(Icons.person)),
+                                        IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(Icons.edit))
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ));
+                      }),
+                ),
                 SizedBox(
                   height: size.height * 0.1,
                 ),
