@@ -28,11 +28,11 @@ class _LoginState extends State<Login> {
         body: Stack(
           children: [
             SingleChildScrollView(
-                padding: const EdgeInsets.only(
-                    left: 50, top: 20, right: 50, bottom: 20),
+                //padding: const EdgeInsets(
+                //    left: 0, top: 20, right: 0, bottom: 20),
                 child: Column(
-                  children: [
-                    /*
+              children: [
+                /*
                 Container(
                     height: size.height * 0.3,
                     width: size.width * 0.5,
@@ -40,151 +40,158 @@ class _LoginState extends State<Login> {
                         image: DecorationImage(
                             image: AssetImage('assets/userImage.png'),
                             fit: BoxFit.cover))),*/
-                    const Text(
-                      'Login',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 50,
-                      ),
-                    ),
-                    /*const label(
+                const Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 50,
+                  ),
+                ),
+                /*const label(
                     texto: 'Ingresa su usuario:',
                     ),*/
-                    Container(
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: const BoxDecoration(
                       color: Colors.white,
-                      child: Column(children: [
-                        TextFormField(
-                            controller: user,
-                            obscureText: false,
-                            textAlign: TextAlign.center,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: const BorderSide(
-                                    color: cons.amarillo,
-                                    width: 1,
-                                    style: BorderStyle.none),
-                              ),
-                              filled: true,
-                              fillColor: cons.amarillo,
-                              hintText: 'Usuario',
-                              hintStyle: const TextStyle(color: Colors.white),
-                              //prefixIcon: const Icon(Icons.verified_user),
-                              errorText: _validateUser
-                                  ? 'Debe de escribir su usuario'
-                                  : null,
-                            ),
-                            onChanged: (texto) {
-                              setState(() {
-                                if (texto.trim().isNotEmpty) {
-                                  _validateUser = false;
-                                }
-                              });
-                            }), //SizedBox es un espacio vacio para separar los inputs
-                        SizedBox(
-                          height: size.height * 0.05,
+                      borderRadius:
+                          BorderRadius.only(topLeft: Radius.circular(100))),
+                  height: size.height,
+                  child: Column(children: [
+                    SizedBox(
+                      height: size.height * 0.1,
+                    ),
+                    TextFormField(
+                        controller: user,
+                        obscureText: false,
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: const BorderSide(
+                                color: cons.amarillo,
+                                width: 1,
+                                style: BorderStyle.none),
+                          ),
+                          filled: true,
+                          fillColor: cons.amarillo,
+                          hintText: 'Usuario',
+                          hintStyle: const TextStyle(color: Colors.white),
+                          //prefixIcon: const Icon(Icons.verified_user),
+                          errorText: _validateUser
+                              ? 'Debe de escribir su usuario'
+                              : null,
                         ),
-                        /*const label(
+                        onChanged: (texto) {
+                          setState(() {
+                            if (texto.trim().isNotEmpty) {
+                              _validateUser = false;
+                            }
+                          });
+                        }), //SizedBox es un espacio vacio para separar los inputs
+                    SizedBox(
+                      height: size.height * 0.05,
+                    ),
+                    /*const label(
                         texto: 'Ingresa su correo:',
                         ),*/
-                        TextFormField(
-                          controller: email,
-                          obscureText: false,
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: const BorderSide(
-                                  color: cons.amarillo,
-                                  width: 1,
-                                  style: BorderStyle.none),
-                            ),
-                            filled: true,
-                            fillColor: cons.amarillo,
-                            hintText: 'Correo',
-                            hintStyle: const TextStyle(color: Colors.white),
-                            errorText: _validateUser
-                                ? 'Debe de escribir su correo'
-                                : null,
-                          ),
+                    TextFormField(
+                      controller: email,
+                      obscureText: false,
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          borderSide: const BorderSide(
+                              color: cons.amarillo,
+                              width: 1,
+                              style: BorderStyle.none),
                         ),
-                        SizedBox(
-                          height: size.height * 0.05,
-                        ),
-                        /*const label(
+                        filled: true,
+                        fillColor: cons.amarillo,
+                        hintText: 'Correo',
+                        hintStyle: const TextStyle(color: Colors.white),
+                        errorText:
+                            _validateUser ? 'Debe de escribir su correo' : null,
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.05,
+                    ),
+                    /*const label(
                           texto: 'Ingresa su constraseña:',
                         ),*/
-                        TextFormField(
-                          controller: pass,
-                          obscureText: true,
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: const BorderSide(
-                                  color: cons.amarillo,
-                                  width: 1,
-                                  style: BorderStyle.none),
-                            ),
-                            filled: true,
-                            fillColor: cons.amarillo,
-                            hintText: 'Contraseña',
-                            hintStyle: const TextStyle(
-                              color: Colors.white,
-                            ),
-                            errorText: _validateUser
-                                ? 'Debe de escribir su contraseña'
-                                : null,
-                          ),
+                    TextFormField(
+                      controller: pass,
+                      obscureText: true,
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          borderSide: const BorderSide(
+                              color: cons.amarillo,
+                              width: 1,
+                              style: BorderStyle.none),
                         ),
-                        SizedBox(
-                          height: size.height * 0.20,
+                        filled: true,
+                        fillColor: cons.amarillo,
+                        hintText: 'Contraseña',
+                        hintStyle: const TextStyle(
+                          color: Colors.white,
                         ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: cons.azul,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            fixedSize: Size(
-                              size.width * 0.75,
-                              45,
-                            ),
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              user.text.isNotEmpty
-                                  ? _validateUser = false
-                                  : _validateUser = true;
-                              if (user.text.isNotEmpty &&
-                                  email.text.isNotEmpty &&
-                                  pass.text.isNotEmpty &&
-                                  user.text == cons.usuario &&
-                                  email.text == cons.email &&
-                                  pass.text == cons.pass &&
-                                  validaCorreo(email.text) == "1") {
-                                //siguiente vista
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Home()));
-                              } else {
-                                _validateUser = true;
-                              }
-                            });
-                          },
-                          child: const Text(
-                            'Ingresar',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ]),
+                        errorText: _validateUser
+                            ? 'Debe de escribir su contraseña'
+                            : null,
+                      ),
                     ),
-                  ],
-                ))
+                    SizedBox(
+                      height: size.height * 0.20,
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: cons.azul,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        fixedSize: Size(
+                          size.width * 0.75,
+                          45,
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          user.text.isNotEmpty
+                              ? _validateUser = false
+                              : _validateUser = true;
+                          if (user.text.isNotEmpty &&
+                              email.text.isNotEmpty &&
+                              pass.text.isNotEmpty &&
+                              user.text == cons.usuario &&
+                              email.text == cons.email &&
+                              pass.text == cons.pass &&
+                              validaCorreo(email.text) == "1") {
+                            //siguiente vista
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Home()));
+                          } else {
+                            _validateUser = true;
+                          }
+                        });
+                      },
+                      child: const Text(
+                        'Ingresar',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ]),
+                ),
+              ],
+            ))
           ],
         ));
   }
