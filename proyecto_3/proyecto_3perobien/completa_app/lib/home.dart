@@ -5,6 +5,8 @@ import 'package:completa_app/mapa.dart';
 import 'package:flutter/material.dart';
 import 'utils/constantes.dart' as cons;
 
+//import 'package:animation_search_bar/animation_search_bar.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -15,6 +17,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 //lista vcia
   List usuarios = [];
+  TextEditingController searchBar = TextEditingController();
 
   @override
   void initState() {
@@ -42,6 +45,12 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
+                /*AnimationSearchBar(
+                    backIconColor: Colors.black,
+                    centerTitle: 'App Title',
+                    onChanged: (text) => debugPrint(text),
+                    searchTextEditingController: searchBar,
+                    horizontalPadding: 5),*/
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -187,10 +196,45 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ElevatedButton(
+              onPressed: () {
+                ShowAlertDialog(context);
+              },
+              child: Text('alerta'),
+            ),
           )
         ],
       ),
     );
+  }
+
+  void ShowAlertDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(
+              'Esta es mi primer alerta',
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+              Text('data'),
+              Text('2'),
+            ]),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Boton'),
+              ),
+            ],
+          );
+        });
   }
 }
 
