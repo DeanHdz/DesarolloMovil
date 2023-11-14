@@ -33,3 +33,23 @@ class NetworkHelper {
     }
   }
 }
+
+class Colores {
+  Colores({required this.nombre});
+
+  final String url = 'http://nrweb.com.mx/api_prueba/colores.php';
+  final String nombre;
+
+  Future getColores() async {
+    http.Response response = await http.get(Uri.parse('$url?nombre=$nombre'));
+    print("$url?nombre=$nombre");
+
+    if (response.statusCode == 200) {
+      String data = response.body;
+      print(data);
+      return jsonDecode(data);
+    } else {
+      print(response.statusCode);
+    }
+  }
+}

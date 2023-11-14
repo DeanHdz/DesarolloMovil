@@ -1,3 +1,4 @@
+import 'package:apis/colores.dart';
 import 'package:apis/getApi.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -73,11 +74,21 @@ class _MapaState extends State<Mapa> {
     });
   }
 
+  /*void _navigateToColores(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Colores()));
+  }*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
+          ElevatedButton(
+              onPressed: () {
+                //_navigateToColores(context);
+              },
+              child: Text('Colores')),
           GoogleMap(
             onMapCreated: _onMapCreated,
             polylines: polyLines,
@@ -96,3 +107,5 @@ class LineString {
   LineString(this.lineString);
   List<dynamic> lineString;
 }
+
+//A la nueva api poner mi nombre
