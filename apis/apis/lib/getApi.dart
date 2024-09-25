@@ -53,3 +53,5 @@ class Colores {
     }
   }
 }
+
+// http://nrweb.com.mx/api_prueba/examen/parcial3.php?nombre=Dean+Joshua+Hernandez&clave=314118&hora=1
